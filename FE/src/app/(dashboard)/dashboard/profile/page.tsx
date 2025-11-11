@@ -34,7 +34,7 @@ export default function ProfilePage() {
     operatingHours: {
       open: '',
       close: '',
-      days: []
+      days: [] as string[]
     }
   });
 

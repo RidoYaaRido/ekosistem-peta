@@ -92,7 +92,7 @@ export default function EditLocationForm({ location, isOpen, onClose, onSuccess 
           whatsapp: location.website || '' // 'website' di DB
         },
         services: services,
-        operatingHours: location.operating_hours || location.operatingHours || defaultOperatingHours
+       operatingHours: location.operating_hours || defaultOperatingHours
       });
     }
   }, [location, isOpen]);

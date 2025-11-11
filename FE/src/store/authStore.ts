@@ -33,6 +33,7 @@ interface User {
   badge?: string;
   address?: UserAddress; // Gunakan tipe yang sudah didefinisikan
   businessInfo?: UserBusinessInfo; // Gunakan tipe yang sudah didefinisikan
+  avatar_url?: string;
 }
 
 // Tipe data yang dikirim untuk update business info

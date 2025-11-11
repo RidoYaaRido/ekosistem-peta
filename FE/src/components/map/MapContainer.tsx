@@ -291,7 +291,7 @@ const MapContainer = forwardRef<MapRef>((props, ref) => {
                     </span>
                   )}
                   {location.pickup_service && (
-                    <span className="px-3 py-1 bg-white bg-opacity-20 backdrop-blur rounded-full text-xs font-medium">
+                    <span className="px-3 py-1 bg-white text-grey-700 bg-opacity-20 backdrop-blur rounded-full text-xs font-medium">
                       🚚 Penjemputan
                     </span>
                   )}

@@ -65,7 +65,7 @@ export default function ProfilePage() {
           operatingHours: user.businessInfo.operatingHours || {
             open: '',
             close: '',
-            days: []
+            days: [] as string[]
           }
         });
       }

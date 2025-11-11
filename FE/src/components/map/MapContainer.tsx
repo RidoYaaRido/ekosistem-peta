@@ -1,7 +1,7 @@
 // src/components/map/MapContainer.tsx - UPDATED with Custom Icons
 'use client';
 
-import { useEffect, useState, useCallback, useRef } from 'react';
+import { useEffect, useState, useCallback, useRef, forwardRef } from 'react';
 import Map, {
   Marker,
   Popup,
@@ -57,12 +57,10 @@ interface Location {
 
 const MAPBOX_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
 
-export default function MapContainer() {
+const MapContainer = forwardRef<MapRef>((props, ref) => {
   const router = useRouter();
   const { locations, userLocation, setUserLocation, fetchLocations } = useLocationStore();
   const { user, isAuthenticated } = useAuthStore();
-
-  const mapRef = useRef<MapRef>(null);
 
   const [viewport, setViewport] = useState({
     longitude: 106.981563,
@@ -120,8 +118,8 @@ export default function MapContainer() {
 
     setSelectedLocation(location);
 
-    if (mapRef.current) {
-      mapRef.current.flyTo({
+    if (ref.current) {
+      ref.current.flyTo({
         center: [location.longitude, location.latitude],
         zoom: 16,
         duration: 2000,
@@ -135,7 +133,7 @@ export default function MapContainer() {
         zoom: 16,
       }));
     }
-  }, []);
+  }, [ref]);
 
   // CUSTOM MARKER COMPONENT dengan Icon yang Berbeda
   const CustomMarker = ({ location }: { location: Location }) => {
@@ -489,7 +487,7 @@ export default function MapContainer() {
         </div>
       ) : (
         <Map
-          ref={mapRef}
+          ref={ref}
           {...viewport}
           mapboxAccessToken={MAPBOX_TOKEN}
           onMove={handleMove}
@@ -680,3 +678,6 @@ export default function MapContainer() {
     </div>
   );
 }
+MapContainer.displayName = 'MapContainer';
+export default MapContainer;
+                                    

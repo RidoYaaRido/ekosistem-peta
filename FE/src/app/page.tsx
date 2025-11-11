@@ -178,16 +178,16 @@ export default function HomePage() {
         <MapContainer />
       </div>
 
-      {/* LEGEND - MODERN DESIGN */}
+      {/* LEGEND - MODERN DESIGN - FIXED POSITION */}
       <div
-        className={`fixed bottom-8 z-[999] transition-all duration-300 ${
-          isSidebarOpen ? 'lg:left-[21rem]' : 'lg:left-8'
-        } left-4`}
+        className={`fixed bottom-8 z-[998] transition-all duration-300 ${
+          isSidebarOpen ? 'lg:left-[22rem]' : 'lg:left-8'
+        } left-4 max-w-[280px]`}
       >
         {/* Toggle Button untuk Mobile */}
         <button
           onClick={() => setShowLegend(!showLegend)}
-          className="lg:hidden mb-2 px-4 py-2 bg-white rounded-lg shadow-lg flex items-center gap-2 hover:bg-gray-50 transition"
+          className="lg:hidden mb-2 px-4 py-2 bg-white rounded-lg shadow-lg flex items-center gap-2 hover:bg-gray-50 transition w-full justify-center"
         >
           <Layers className="w-5 h-5 text-green-600" />
           <span className="text-sm font-medium text-gray-700">

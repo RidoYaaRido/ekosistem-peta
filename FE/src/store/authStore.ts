@@ -57,6 +57,7 @@ interface AuthState {
   checkAuth: () => Promise<void>;
   updateProfile: (data: ProfileData) => Promise<void>; // Perjelas tipe data
   updateBusinessInfo: (data: BusinessInfoData) => Promise<void>; // Tambahkan fungsi baru
+  uploadAvatar: (file: File) => Promise<void>;
 }
 
 // --- Implementasi Store ---
@@ -217,7 +218,32 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
       throw new Error(error.response?.data?.error || 'Update info usaha gagal');
     }
   },
+  uploadAvatar: async (file) => {
+    const formData = new FormData();
+    // Pastikan 'avatar' cocok dengan nama field yang diharapkan backend
+    formData.append('avatar', file); 
+
+    try {
+      // Endpoint backend, sesuaikan jika perlu (misal: /auth/me/avatar)
+      const { data } = await api.put('/auth/avatar', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Penting untuk file upload
+        },
+      });
+
+      // Asumsi backend mengembalikan data user yang terupdate
+      // (sesuai pola 'data.data' dari fungsi updateProfile)
+      set({ user: data.data });
+      localStorage.setItem('user', JSON.stringify(data.data));
+
+    } catch (error: any) {
+      console.error("Upload Avatar Error:", error.response?.data?.error || error.message);
+      throw new Error(error.response?.data?.error || 'Upload avatar gagal');
+    }
+  },
 }));
+
+
 
 // Panggil checkAuth sekali saat aplikasi dimuat (opsional, tergantung setup aplikasi Anda)
 // useAuthStore.getState().checkAuth();

@@ -10,6 +10,12 @@ interface UserAddress { // Definisikan tipe untuk alamat jika belum ada
   postalCode?: string;
 }
 
+interface OperatingHours {
+  open: string;
+  close: string;
+  days: string[]; // atau 'any[]' jika harinya bisa bervariasi
+}
+
 interface UserBusinessInfo { // Definisikan tipe untuk info bisnis
   businessName?: string;
   businessType?: string;

@@ -2,30 +2,30 @@
   "version": 2,
   "builds": [
     {
-      "src": "fe/package.json",
+      "src": "FE/package.json",
       "use": "@vercel/next"
     },
     {
-      "src": "be/server.js",
+      "src": "FE/server.js",
       "use": "@vercel/node"
     }
   ],
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/be/server.js"
+      "destination": "/BE/server.js"
     },
     {
       "source": "/health",
-      "destination": "/be/server.js"
+      "destination": "/BE/server.js"
     },
     {
       "source": "/uploads/(.*)",
-      "destination": "/be/server.js"
+      "destination": "/BE/server.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/fe/$1"
+      "destination": "/BE/$1"
     }
   ]
 }

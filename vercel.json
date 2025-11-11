@@ -25,7 +25,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/BE/$1"
+      "destination": "/FE/$1" 
     }
   ]
 }

@@ -8,29 +8,7 @@ import api from '@/lib/api';
 import toast from 'react-hot-toast';
 import { MapPin, Phone, Package, Map, LocateFixed } from 'lucide-react';
 import dynamic from 'next/dynamic';
-
-// Interface "datar"
-interface Location {
-  id: string;
-  _id?: string;
-  name: string;
-  type: 'bank_sampah' |  'jasa_angkut';
-  description?: string;
-  street: string;
-  city: string;
-  province: string;
-  postal_code?: string;
-  longitude?: number;
-  latitude?: number;
-  location?: { coordinates?: [number, number]; }; // fallback
-  phone: string;
-  email?: string;
-  website?: string; // untuk whatsapp
-  pickup_service?: boolean;
-  dropoff_service?: boolean;
-  operating_hours?: OperatingHours;
-  operatingHours?: OperatingHours; // fallback
-}
+import { Location } from '@/types';
 
 interface EditLocationFormProps {
   location: Location | null;

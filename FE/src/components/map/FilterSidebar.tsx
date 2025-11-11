@@ -107,7 +107,8 @@ export default function FilterSidebar({ isOpen, setIsOpen, onLocationClick }: Fi
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-24 left-4 z-[1000] bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+        className="lg:hidden fixed top-24 left-4 z-[1000] bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
+        aria-label="Toggle Filter"
       >
         <Filter className="w-5 h-5 text-green-600" />
       </button>
@@ -273,7 +274,7 @@ export default function FilterSidebar({ isOpen, setIsOpen, onLocationClick }: Fi
           </div>
 
           {/* Location List */}
-          <div className="p-4">
+          <div className="p-4 pb-24">
             <h3 className="text-sm font-bold text-gray-700 mb-3 flex items-center gap-2">
               <Star className="w-4 h-4 text-yellow-500" />
               Hasil Pencarian

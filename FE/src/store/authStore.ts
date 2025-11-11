@@ -20,7 +20,7 @@ interface UserBusinessInfo { // Definisikan tipe untuk info bisnis
   businessName?: string;
   businessType?: string;
   certification?: string;
-  // Tambahkan field lain jika ada di model User.js
+  operatingHours?: OperatingHours;
 }
 
 interface User {

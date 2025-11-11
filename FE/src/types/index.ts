@@ -18,6 +18,7 @@ export interface Location {
   website?: string;
   latitude: number;
   longitude: number;
+  description?: string;
   
   operating_hours?: any;
   pickup_service: boolean;

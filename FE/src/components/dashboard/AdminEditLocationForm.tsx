@@ -97,7 +97,7 @@ export default function AdminEditLocationForm({ location, isOpen, onClose, onSuc
         status: location.status || 'pending',
         isVerified: location.verified || false,
         //isActive: location.is_active !== undefined ? location.is_active : true,
-        operatingHours: location.operating_hours || location.operatingHours || defaultOperatingHours
+        operatingHours: location.operating_hours || defaultOperatingHours
       });
     }
   }, [location, isOpen]);

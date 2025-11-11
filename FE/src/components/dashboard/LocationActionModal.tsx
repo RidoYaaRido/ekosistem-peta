@@ -7,26 +7,6 @@ import api from '@/lib/api';
 import toast from 'react-hot-toast';
 import { CheckCircle, XCircle, MapPin, Phone, Clock } from 'lucide-react';
 
-// Interface "datar"
-interface Location {
-  id: string;
-  _id?: string;
-  name: string;
-  owner?: { name: string; email?: string; phone?: string };
-  type: 'bank_sampah' | 'jasa_angkut';
-  description?: string;
-  
-  street: string;
-  city: string;
-  province: string;
-  phone: string;
-  email?: string;
-  
-  operating_hours?: any;
-  status: 'pending' | 'approved' | 'rejected' | 'suspended';
-  rejection_reason?: string;
-}
-
 interface LocationActionModalProps {
   location: Location | null;
   isOpen: boolean;

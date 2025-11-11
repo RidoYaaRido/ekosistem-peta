@@ -3,19 +3,7 @@
 
 import { Edit, Eye, Edit2 } from 'lucide-react';
 import { useEffect } from 'react';
-
-// Interface "datar"
-interface Location {
-  id: string; // Gunakan id
-  name: string;
-  owner?: { name: string };
-  type: 'bank_sampah' | 'jasa_angkut';
-  city: string; // Ganti dari address.city
-  province: string;
-  status: 'pending' | 'approved' | 'rejected' | 'suspended';
-  created_at: string; // Ganti dari createdAt
-  _id?: string; // ID lama (jika ada)
-}
+import { Location } from '@/types';
 
 interface LocationTableProps {
   locations: Location[];

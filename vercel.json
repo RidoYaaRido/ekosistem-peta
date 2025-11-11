@@ -2,14 +2,30 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
+      "src": "fe/package.json",
+      "use": "@vercel/next"
+    },
+    {
+      "src": "be/server.js",
       "use": "@vercel/node"
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/(.*)",
-      "dest": "server.js"
+      "source": "/api/(.*)",
+      "destination": "/be/server.js"
+    },
+    {
+      "source": "/health",
+      "destination": "/be/server.js"
+    },
+    {
+      "source": "/uploads/(.*)",
+      "destination": "/be/server.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/fe/$1"
     }
   ]
 }

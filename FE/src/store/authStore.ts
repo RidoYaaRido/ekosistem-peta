@@ -56,6 +56,7 @@ interface AuthState {
   token: string | null;
   isLoading: boolean;
   isAuthenticated: boolean;
+  isLoginLoading: boolean;
   
   // Actions
   login: (email: string, password: string) => Promise<void>;
@@ -75,10 +76,12 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
   isLoading: true, 
   isAuthenticated: false,
 
+  isLoginLoading: false;
+
   // Fungsi Login (Sudah benar)
   login: async (email, password) => {
     try {
-      set({ isLoading: true });
+      set({ isLoginLoading: true });
       const { data } = await api.post('/auth/login', { email, password });
       
       localStorage.setItem('token', data.token);
@@ -89,7 +92,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
         user: data.user,
         token: data.token,
         isAuthenticated: true,
-        isLoading: false,
+        isLoginLoading: false;
       });
     } catch (error: any) {
       set({ isLoading: false });

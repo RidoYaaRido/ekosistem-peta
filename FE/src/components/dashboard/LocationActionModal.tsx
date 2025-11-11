@@ -6,6 +6,7 @@ import Modal from '@/components/ui/Modal';
 import api from '@/lib/api';
 import toast from 'react-hot-toast';
 import { CheckCircle, XCircle, MapPin, Phone, Clock } from 'lucide-react';
+import { Location } from '@/types';
 
 interface LocationActionModalProps {
   location: Location | null;

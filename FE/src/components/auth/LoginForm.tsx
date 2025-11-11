@@ -9,7 +9,7 @@ import { MapPin, Mail, Lock, Eye, EyeOff, Leaf, Recycle, Users } from 'lucide-re
 
 export default function LoginForm() {
   const router = useRouter();
-  const { login, isLoading: isLoginLoading } = useAuthStore();
+  const { login, isLoginLoading } = useAuthStore();
 
   const [formData, setFormData] = useState({
     email: '',

@@ -76,7 +76,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
   isLoading: true, 
   isAuthenticated: false,
 
-  isLoginLoading: false;
+  isLoginLoading: false,
 
   // Fungsi Login (Sudah benar)
   login: async (email, password) => {
@@ -92,7 +92,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
         user: data.user,
         token: data.token,
         isAuthenticated: true,
-        isLoginLoading: false;
+        isLoginLoading: false,
       });
     } catch (error: any) {
       set({ isLoading: false });

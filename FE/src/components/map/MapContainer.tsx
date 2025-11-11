@@ -118,7 +118,7 @@ const MapContainer = forwardRef<MapRef>((props, ref) => {
 
     setSelectedLocation(location);
 
-    if (ref.current) {
+    if (ref && ref.current) {
       ref.current.flyTo({
         center: [location.longitude, location.latitude],
         zoom: 16,

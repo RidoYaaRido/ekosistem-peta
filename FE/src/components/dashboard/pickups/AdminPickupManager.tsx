@@ -8,18 +8,32 @@ import ManagePickupModal from './ManagePickupModal'; // Modal yang sama dengan M
 import { Calendar, User, MapPin, AlertTriangle } from 'lucide-react';
 
 // Interface untuk data penjemputan
+// Interface untuk data penjemputan
 interface PickupRequest {
   id: string;
   status: 'pending' | 'accepted' | 'scheduled' | 'in_progress' | 'completed' | 'cancelled';
   scheduled_date: string;
-  user: { name: string };
+  
+  // DIPERBAIKI: Tambahkan 'phone' agar cocok dengan modal
+  user: { 
+    name: string; 
+    phone: string; 
+  };
+  
   location: { name: string }; // Admin perlu tahu lokasinya
+  
   waste_items: {
     category: { name: string, id: string };
     estimated_weight: number;
     actual_weight: number;
     unit: string;
   }[];
+
+  // TAMBAHAN: Tambahkan ini agar modal bisa menampilkan detail alamat
+  // (Jika endpoint admin tidak menyertakan ini, tandai sebagai opsional '?' agar tetap lolos build)
+  pickup_street?: string;
+  pickup_city?: string;
+  user_notes?: string;
 }
 
 export default function AdminPickupManager() {

@@ -105,7 +105,7 @@ const MapContainer = forwardRef<MapRef>((props, ref) => {
       );
     } else {
       console.warn('Geolocation is not supported by this browser.');
-      toast.warn('Browser tidak mendukung geolocation.');
+      toast.error('Browser tidak mendukung geolocation.');
       fetchLocations();
     }
   }, [setUserLocation, fetchLocations]);

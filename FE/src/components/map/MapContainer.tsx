@@ -677,7 +677,7 @@ const MapContainer = forwardRef<MapRef>((props, ref) => {
       )}
     </div>
   );
-}
+});
 MapContainer.displayName = 'MapContainer';
 export default MapContainer;
                                     

@@ -72,8 +72,8 @@ export default function AdminEditLocationForm({ location, isOpen, onClose, onSuc
       if (location.pickup_service) services.push('pickup');
       if (location.dropoff_service) services.push('dropoff');
 
-      const longitude = location.longitude || (location.location as any)?.coordinates?.[0] || 0;
-      const latitude = location.latitude || (location.location as any)?.coordinates?.[1] || 0;
+      const longitude = location.longitude || 0;
+      const latitude = location.latitude || 0;
 
       setFormData({
         name: location.name || '',

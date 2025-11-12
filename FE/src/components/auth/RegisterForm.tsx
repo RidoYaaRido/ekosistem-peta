@@ -50,10 +50,21 @@ export default function RegisterForm() {
     const fetchProvinces = async () => {
       try {
         const res = await fetch('/api/provinces');
+        if (!res.ok) { // <-- Cek jika response 404 atau 500
+          throw new Error(`Failed to fetch: ${res.status}`);
+        }
         const data = await res.json();
-        setProvinces(data);
+        
+        // Cek apakah data adalah array sebelum di-set
+        if (Array.isArray(data)) {
+          setProvinces(data);
+        } else {
+          console.error('Data provinsi bukan array:', data);
+          setProvinces([]); // Set ke array kosong jika gagal
+        }
       } catch (error) {
         console.error('Gagal memuat provinsi:', error);
+        setProvinces([]); // Set ke array kosong jika gagal
       }
     };
     fetchProvinces();

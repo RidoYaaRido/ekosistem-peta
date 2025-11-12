@@ -107,9 +107,9 @@ export default function FilterSidebar({ isOpen, setIsOpen, onLocationClick }: Fi
       {/* Mobile Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-24 left-4 z-[1000] bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+        className="lg:w-15 lg:h-15 fixed top-24 left-4 z-[998] bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
       >
-        <Filter className="w-5 h-5 text-green-600" />
+        <Filter className="w-5 h-5 lg:w-9 lg:h-9 text-green-600" />
       </button>
 
       {/* Sidebar */}
@@ -127,7 +127,7 @@ export default function FilterSidebar({ isOpen, setIsOpen, onLocationClick }: Fi
             </h2>
             <button
               onClick={() => setIsOpen(false)}
-              className="lg:hidden p-2 hover:bg-white rounded-lg transition"
+              className="p-2 hover:bg-white rounded-lg transition"
             >
               <X className="w-5 h-5 text-gray-600" />
             </button>
@@ -387,7 +387,7 @@ export default function FilterSidebar({ isOpen, setIsOpen, onLocationClick }: Fi
       {/* Overlay */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-[998]"
+          className="lg:hidden fixed inset-0 backdrop-blur bg-white/30 z-[998]"
           onClick={() => setIsOpen(false)}
         />
       )}

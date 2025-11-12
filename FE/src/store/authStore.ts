@@ -105,7 +105,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
   // Fungsi Register (Sudah benar)
   register: async (userData) => {
     try {
-      set({ isRegisterLoading:: true });
+      set({ isRegisterLoading: true });
       const { data } = await api.post('/auth/register', userData);
       
       localStorage.setItem('token', data.token);

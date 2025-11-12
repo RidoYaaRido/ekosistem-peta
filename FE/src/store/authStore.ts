@@ -57,6 +57,7 @@ interface AuthState {
   isLoading: boolean;
   isAuthenticated: boolean;
   isLoginLoading: boolean;
+  isRegisterLoading: boolean;
   
   // Actions
   login: (email: string, password: string) => Promise<void>;
@@ -75,8 +76,8 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
   // Default isLoading: true (Sudah benar)
   isLoading: true, 
   isAuthenticated: false,
-
   isLoginLoading: false,
+  isRegisterLoading: false,
 
   // Fungsi Login (Sudah benar)
   login: async (email, password) => {
@@ -104,7 +105,7 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
   // Fungsi Register (Sudah benar)
   register: async (userData) => {
     try {
-      set({ isLoading: true });
+      set({ isRegisterLoading:: true });
       const { data } = await api.post('/auth/register', userData);
       
       localStorage.setItem('token', data.token);
@@ -114,10 +115,10 @@ export const useAuthStore = create<AuthState>((set, get) => ({ // Tambahkan 'get
         user: data.user,
         token: data.token,
         isAuthenticated: true,
-        isLoading: false,
+        isRegisterLoading: false,
       });
     } catch (error: any) {
-      set({ isLoading: false });
+      set({ isRegisterLoading: false });
       console.error("Register Error:", error.response?.data?.error || error.message);
       throw new Error(error.response?.data?.error || 'Registrasi gagal');
     }

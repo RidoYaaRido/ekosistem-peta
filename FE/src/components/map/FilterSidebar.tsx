@@ -353,7 +353,7 @@ export default function FilterSidebar({ isOpen, setIsOpen, onLocationClick }: Fi
 
                       {/* Phone (on hover) */}
                       {location.phone && (
-                        <div className="pt-2 border-t border-gray-200 opacity-0 group-hover:opacity-100 transition-opacity">
+                        <div className="pt-2 border-t border-gray-200 transition-opacit">
                           <div className="flex items-center gap-2">
                             <Phone className="w-3.5 h-3.5 text-gray-700" />
                             <a
@@ -369,11 +369,11 @@ export default function FilterSidebar({ isOpen, setIsOpen, onLocationClick }: Fi
                     </div>
 
                     {/* Detail Button - Separate click handler */}
-                    <button
-                      onClick={(e) => handleViewDetail(e, location.id)}
-                      className="absolute top-2 right-2 p-2 bg-green-700 border-2 border-green-500 rounded-lg hover:bg-green-500 hover:text-white text-green-600 transition-all opacity-0 group-hover:opacity-100 shadow-md"
-                      title="Lihat Detail & Ulasan"
-                    >
+                   <button
+                      onClick={(e) => handleViewDetail(e, location.id)}
+                      className="absolute top-2 right-2 p-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 hover:text-gray-800 transition-all shadow-sm border border-gray-200"
+                      title="Lihat Detail & Ulasan"
+                    >
                       <ExternalLink className="w-4 h-4" />
                     </button>
                   </div>

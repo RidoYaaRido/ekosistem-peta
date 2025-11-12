@@ -1,4 +1,4 @@
-// src/app/page.tsx - Homepage with Map (Improved)
+// src/app/page.tsx - Homepage with Map (Improved Layout Fix)
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -169,25 +169,21 @@ export default function HomePage() {
       {/* FILTER SIDEBAR */}
       <FilterSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
-      {/* MAP CONTAINER */}
-      <div
-        className={`pt-20 transition-all duration-300 ${
-          isSidebarOpen ? 'lg:ml-80' : 'lg:ml-0'
-        }`}
-      >
+      {/* MAP CONTAINER - Remove margin adjustments, use full width always */}
+      <div className="pt-20 h-[calc(100vh-5rem)]">
         <MapContainer />
       </div>
 
-      {/* LEGEND - MODERN DESIGN - FIXED POSITION */}
+      {/* LEGEND - MODERN DESIGN - Adjusted positioning based on sidebar */}
       <div
-        className={`fixed bottom-8 z-[998] transition-all duration-300 ${
-          isSidebarOpen ? 'lg:left-[22rem]' : 'lg:left-8'
-        } left-4 max-w-[280px]`}
+        className={`fixed bottom-8 z-[999] transition-all duration-300 ${
+          isSidebarOpen ? 'left-4 lg:left-[25rem]' : 'left-4 lg:left-20'
+        }`}
       >
         {/* Toggle Button untuk Mobile */}
         <button
           onClick={() => setShowLegend(!showLegend)}
-          className="lg:hidden mb-2 px-4 py-2 bg-white rounded-lg shadow-lg flex items-center gap-2 hover:bg-gray-50 transition w-full justify-center"
+          className="lg:hidden mb-2 px-4 py-2 bg-white rounded-lg shadow-lg flex items-center gap-2 hover:bg-gray-50 transition"
         >
           <Layers className="w-5 h-5 text-green-600" />
           <span className="text-sm font-medium text-gray-700">
@@ -199,7 +195,7 @@ export default function HomePage() {
         <div
           className={`bg-white rounded-xl shadow-xl p-5 border border-gray-100 ${
             showLegend ? 'block' : 'hidden'
-          } lg:block`}
+          } lg:block max-w-xs`}
         >
           <div className="flex items-center justify-between mb-4">
             <h4 className="font-bold text-gray-800 text-sm flex items-center gap-2">
@@ -211,7 +207,7 @@ export default function HomePage() {
           <div className="space-y-3">
             {/* Bank Sampah */}
             <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-green-50 transition">
-              <div className="relative">
+              <div className="relative flex-shrink-0">
                 <div className="w-10 h-10 bg-green-600 rounded-full border-3 border-white shadow-md flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -245,7 +241,7 @@ export default function HomePage() {
 
             {/* Jasa Angkut */}
             <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-blue-50 transition">
-              <div className="relative">
+              <div className="relative flex-shrink-0">
                 <div className="w-10 h-10 bg-blue-600 rounded-full border-3 border-white shadow-md flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +277,7 @@ export default function HomePage() {
 
             {/* Both */}
             <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-purple-50 transition">
-              <div className="relative">
+              <div className="relative flex-shrink-0">
                 <div className="w-10 h-10 bg-purple-600 rounded-full border-3 border-white shadow-md flex items-center justify-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -314,7 +310,7 @@ export default function HomePage() {
 
             {/* User Location */}
             <div className="flex items-center gap-3 p-2 rounded-lg hover:bg-red-50 transition border-t border-gray-100 pt-3 mt-3">
-              <div className="relative">
+              <div className="relative flex-shrink-0">
                 <div className="w-7 h-7 bg-red-500 rounded-full border-2 border-white shadow-md"></div>
                 <div className="absolute inset-0 w-7 h-7 bg-red-500 rounded-full animate-pulse opacity-40"></div>
               </div>
@@ -325,7 +321,7 @@ export default function HomePage() {
       </div>
 
       {/* INFO CARDS - Desktop Only (Hidden on Mobile to reduce clutter) */}
-      <div className="absolute bottom-8 right-8 z-[999] hidden xl:block">
+      <div className="fixed bottom-8 right-8 z-[999] hidden xl:block">
         <div className="bg-white rounded-xl shadow-2xl p-6 w-80 space-y-4 border border-gray-100">
           <h3 className="font-bold text-gray-800 text-lg flex items-center gap-2">
             🌿 Eco-Peta Platform

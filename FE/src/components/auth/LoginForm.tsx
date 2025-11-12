@@ -335,6 +335,10 @@ export default function LoginForm() {
           {/* Footer Links */}
           <div className="mt-8 text-center space-y-2">
             <div className="flex items-center justify-center gap-4 text-sm text-gray-600">
+              <Link href="/app" className="hover:text-green-600 transition-colors">
+                Home
+              </Link>
+              <span className="text-gray-400">•</span>
               <Link href="/about" className="hover:text-green-600 transition-colors">
                 Tentang
               </Link>

@@ -272,56 +272,90 @@ export default function RegisterForm() {
 
             {/* Progress Steps */}
             <div className="mb-8">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                    currentStep >= 1 ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-400'
-                  }`}>
-                    1
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm text-gray-900">Informasi Dasar</div>
-                    <div className="text-xs text-gray-500">Data pribadi</div>
-                  </div>
-                </div>
+  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-0 mb-4">
 
-                <div className={`flex-1 h-1 mx-4 rounded ${
-                  currentStep >= 2 ? 'bg-green-600' : 'bg-gray-200'
-                }`}></div>
+    {/* STEP 1 */}
+    <div className="flex items-center gap-2 sm:gap-3">
+      <div
+        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-colors ${
+          currentStep >= 1
+            ? 'bg-green-600 text-white'
+            : 'bg-gray-200 text-gray-400'
+        }`}
+      >
+        1
+      </div>
+      <div className="leading-tight">
+        <div className="font-semibold text-xs sm:text-sm text-gray-900">
+          Informasi Dasar
+        </div>
+        <div className="hidden sm:block text-xs text-gray-500">
+          Data pribadi
+        </div>
+      </div>
+    </div>
 
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                    currentStep >= 2 ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-400'
-                  }`}>
-                    2
-                  </div>
-                  <div>
-                    <div className="font-semibold text-sm text-gray-900">Alamat</div>
-                    <div className="text-xs text-gray-500">Lokasi</div>
-                  </div>
-                </div>
+    {/* CONNECTOR */}
+    <div
+      className={`hidden sm:block flex-1 h-1 mx-4 rounded ${
+        currentStep >= 2 ? 'bg-green-600' : 'bg-gray-200'
+      }`}
+    ></div>
 
-                {formData.role === 'mitra' && (
-                  <>
-                    <div className={`flex-1 h-1 mx-4 rounded ${
-                      currentStep >= 3 ? 'bg-green-600' : 'bg-gray-200'
-                    }`}></div>
+    {/* STEP 2 */}
+    <div className="flex items-center gap-2 sm:gap-3">
+      <div
+        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-colors ${
+          currentStep >= 2
+            ? 'bg-green-600 text-white'
+            : 'bg-gray-200 text-gray-400'
+        }`}
+      >
+        2
+      </div>
+      <div className="leading-tight">
+        <div className="font-semibold text-xs sm:text-sm text-gray-900">
+          Alamat
+        </div>
+        <div className="hidden sm:block text-xs text-gray-500">
+          Lokasi
+        </div>
+      </div>
+    </div>
 
-                    <div className="flex items-center gap-3">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
-                        currentStep >= 3 ? 'bg-green-600 text-white' : 'bg-gray-200 text-gray-400'
-                      }`}>
-                        3
-                      </div>
-                      <div>
-                        <div className="font-semibold text-sm text-gray-900">Bisnis</div>
-                        <div className="text-xs text-gray-500">Info usaha</div>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </div>
+    {/* STEP 3 — hanya untuk mitra */}
+    {formData.role === 'mitra' && (
+      <>
+        <div
+          className={`hidden sm:block flex-1 h-1 mx-4 rounded ${
+            currentStep >= 3 ? 'bg-green-600' : 'bg-gray-200'
+          }`}
+        ></div>
+
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div
+            className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-colors ${
+              currentStep >= 3
+                ? 'bg-green-600 text-white'
+                : 'bg-gray-200 text-gray-400'
+            }`}
+          >
+            3
+          </div>
+          <div className="leading-tight">
+            <div className="font-semibold text-xs sm:text-sm text-gray-900">
+              Bisnis
             </div>
+            <div className="hidden sm:block text-xs text-gray-500">
+              Info usaha
+            </div>
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+</div>
+
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-6">

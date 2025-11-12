@@ -21,6 +21,8 @@ const dashboardRoutes = require('./routes/dashboardRoutes');
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 // Body parser
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

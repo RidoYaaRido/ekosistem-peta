@@ -281,17 +281,17 @@ const MapContainer = forwardRef<MapRef>((props, ref) => {
               <div className="flex-1">
                 <h2 className="text-2xl font-bold">{location.name}</h2>
                 <div className="flex items-center gap-2 mt-2 flex-wrap">
-                  <span className="px-3 py-1 bg-white bg-opacity-20 backdrop-blur rounded-full text-xs font-medium capitalize">
+                  <span className="px-3 py-1 bg-white text-gray-700 bg-opacity-20 backdrop-blur rounded-full text-xs font-medium capitalize">
                     {location.type.replace('_', ' ')}
                   </span>
                   {location.verified && (
-                    <span className="px-3 py-1 bg-white bg-opacity-20 backdrop-blur rounded-full text-xs font-medium flex items-center gap-1">
+                    <span className="px-3 py-1 bg-white text-gray-700 bg-opacity-20 backdrop-blur rounded-full text-xs font-medium flex items-center gap-1">
                       <CheckCircle className="w-3 h-3" />
                       Terverifikasi
                     </span>
                   )}
                   {location.pickup_service && (
-                    <span className="px-3 py-1 bg-white text-grey-700 bg-opacity-20 backdrop-blur rounded-full text-xs font-medium">
+                    <span className="px-3 py-1 bg-white text-gray-700 bg-opacity-20 backdrop-blur rounded-full text-xs font-medium">
                       🚚 Penjemputan
                     </span>
                   )}

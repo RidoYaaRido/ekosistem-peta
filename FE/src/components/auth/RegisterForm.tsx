@@ -24,7 +24,7 @@ interface City {
 
 export default function RegisterForm() {
   const router = useRouter();
-  const { register: registerUser, isLoading } = useAuthStore();
+  const { register: registerUser, isRegisterLoading: isLoading } = useAuthStore();
   
   const [formData, setFormData] = useState({
     name: '',
